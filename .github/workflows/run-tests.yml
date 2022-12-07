@@ -6,13 +6,13 @@ jobs:
     name: Run PHPUnit tests
     runs-on: ubuntu-latest
     container:
-      image: node:alpine
+      image: alpine
       volumes:
         - ${{ github.workspace }}:/app
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Running composer install
-        run: node install
+        run: composer install
       - name: Running phpunit
         run: ./vendor/bin/phpunit tests
